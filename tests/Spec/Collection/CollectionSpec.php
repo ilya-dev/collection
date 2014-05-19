@@ -32,4 +32,14 @@ class CollectionSpec extends ObjectBehavior {
         $this->toJson()->shouldBeLike($this->getWrappedObject());
     }
 
+    function it_is_countable()
+    {
+        $this->shouldImplement('Countable');
+
+        $this->count()->shouldReturn(5);
+
+        $this->count()->shouldBeEqualTo(count($this->getWrappedObject()));
+    }
+
 }
+
