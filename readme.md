@@ -11,7 +11,7 @@ Various development-related notes that I write for my own.
 #### Interfaces
 
 + `JsonSerializable` [done]
-+ `Countable`
++ `Countable` [done]
 + `ArrayAccess`
 + `IteratorAggregate`
 
