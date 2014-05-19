@@ -1,0 +1,15 @@
+{
+    "name": "ilya/collection",
+    "description": "Painless PHP collections",
+    "keywords": ["collection", "collections"],
+    "license": "MIT",
+
+    "require-dev": {
+        "phpspec/phpspec": "~2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Collection\\": "source/Collection"
+        }
+    }
+}
