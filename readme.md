@@ -1,0 +1,3 @@
+# Collection
+
+Painless PHP collections.
