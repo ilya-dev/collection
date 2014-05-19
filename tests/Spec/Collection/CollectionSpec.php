@@ -41,5 +41,12 @@ class CollectionSpec extends ObjectBehavior {
         $this->count()->shouldBeEqualTo(count($this->getWrappedObject()));
     }
 
+    function it_is_traversable()
+    {
+        $this->shouldImplement('IteratorAggregate');
+
+        $this->getIterator()->shouldHaveType('ArrayIterator');
+    }
+
 }
 
