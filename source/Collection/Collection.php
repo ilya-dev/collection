@@ -2,8 +2,9 @@
 
 use Collection\Contracts\JsonableContract;
 use Countable;
+use IteratorAggregate, ArrayIterator;
 
-class Collection implements JsonableContract, Countable {
+class Collection implements JsonableContract, Countable, IteratorAggregate {
 
     /**
      * The items stored.
@@ -41,6 +42,16 @@ class Collection implements JsonableContract, Countable {
     public function count()
     {
         return count($this->items);
+    }
+
+    /**
+     * Get an iterator for the items.
+     *
+     * @return ArrayIterator
+     */
+    public function getIterator()
+    {
+        return new ArrayIterator($this->items);
     }
 
     /**
