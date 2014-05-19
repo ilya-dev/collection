@@ -1,0 +1,8 @@
+formatter.name: pretty
+
+suites:
+  collection_suite:
+    namespace: Collection
+    src_path: source
+    spec_path: tests
+    spec_prefix: Spec
