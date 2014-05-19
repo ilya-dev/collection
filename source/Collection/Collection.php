@@ -53,4 +53,14 @@ class Collection implements JsonableContract {
         return json_encode($this->items, $options);
     }
 
+    /**
+     * Convert the object into a string.
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->toJson();
+    }
+
 }

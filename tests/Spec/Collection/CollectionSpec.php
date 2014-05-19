@@ -28,6 +28,8 @@ class CollectionSpec extends ObjectBehavior {
         $this->toJson()->shouldReturn('[1,2,3,4,5]');
 
         $this->toJson(JSON_PRETTY_PRINT)->shouldNotReturn('[1,2,3,4,5]');
+
+        $this->toJson()->shouldBeLike($this->getWrappedObject());
     }
 
 }
