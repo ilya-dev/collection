@@ -45,7 +45,10 @@ class CollectionSpec extends ObjectBehavior {
     {
         $this->shouldImplement('IteratorAggregate');
 
-        $this->getIterator()->shouldHaveType('ArrayIterator');
+        $iterator = $this->getIterator();
+
+        $iterator->shouldHaveType('ArrayIterator');
+        $iterator->getArrayCopy()->shouldReturn([1, 2, 3, 4, 5]);
     }
 
 }
