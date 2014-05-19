@@ -13,7 +13,7 @@ Various development-related notes that I write for my own.
 + `JsonSerializable` [done]
 + `Countable` [done]
 + `ArrayAccess`
-+ `IteratorAggregate`
++ `IteratorAggregate` [done]
 
 #### Methods
 
