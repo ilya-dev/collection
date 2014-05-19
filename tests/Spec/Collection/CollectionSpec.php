@@ -14,4 +14,9 @@ class CollectionSpec extends ObjectBehavior {
         $this->shouldHaveType('Collection\Collection');
     }
 
+    function it_returns_all_items()
+    {
+        $this->all()->shouldReturn([1, 2, 3, 4, 5]);
+    }
+
 }
