@@ -1,8 +1,9 @@
 <?php namespace Collection;
 
 use Collection\Contracts\JsonableContract;
+use Countable;
 
-class Collection implements JsonableContract {
+class Collection implements JsonableContract, Countable {
 
     /**
      * The items stored.
@@ -30,6 +31,16 @@ class Collection implements JsonableContract {
     public function all()
     {
         return $this->items;
+    }
+
+    /**
+     * Count the number of items.
+     *
+     * @return integer
+     */
+    public function count()
+    {
+        return count($this->items);
     }
 
     /**
