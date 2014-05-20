@@ -145,6 +145,17 @@ class CollectionSpec extends ObjectBehavior {
         $this->isEmpty()->shouldReturn(true);
     }
 
+    function it_returns_an_array_with_the_values_of_a_key()
+    {
+        // clean the collection
+        array_map([$this, 'remove'], range(0, 4));
+
+        $this->push(['name' => 'Jack']);
+        $this->push(['name' => 'John']);
+
+        $this->pluck('name')->shouldReturn(['Jack', 'John']);
+    }
+
     function it_is_json_serializable()
     {
         $this->shouldImplement('Collection\Contracts\JsonableContract');

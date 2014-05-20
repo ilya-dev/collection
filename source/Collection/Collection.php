@@ -190,6 +190,23 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Get an array with the values of a key.
+     *
+     * @return array
+     */
+    public function pluck($key)
+    {
+        $items = [];
+
+        foreach ($this->items as $item)
+        {
+            $items[] = $item[$key];
+        }
+
+        return $items;
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer

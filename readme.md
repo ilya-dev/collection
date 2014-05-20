@@ -33,7 +33,7 @@ Various development-related notes that I write for my own.
 + `implode`
 + `intersection`
 + `isEmpty` [done]
-+ `pluck`
++ `pluck` [done]
 + `map` [done]
 + `merge`
 + `pop` [done]
