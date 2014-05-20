@@ -180,6 +180,16 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Determine if the collection has no items.
+     *
+     * @return boolean
+     */
+    public function isEmpty()
+    {
+        return count($this->items) == 0;
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer

@@ -32,7 +32,7 @@ Various development-related notes that I write for my own.
 + `has` [done]
 + `implode`
 + `intersection`
-+ `isEmpty`
++ `isEmpty` [done]
 + `pluck`
 + `map` [done]
 + `merge`

@@ -135,6 +135,16 @@ class CollectionSpec extends ObjectBehavior {
         $this->pop()->shouldReturn(null);
     }
 
+    function it_checks_if_the_collection_is_empty()
+    {
+        $this->isEmpty()->shouldReturn(false);
+
+        // invoke "pop" 5 times
+        array_map([$this, 'pop'], range(1, 5));
+
+        $this->isEmpty()->shouldReturn(true);
+    }
+
     function it_is_json_serializable()
     {
         $this->shouldImplement('Collection\Contracts\JsonableContract');
