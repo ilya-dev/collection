@@ -207,6 +207,22 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Merge the collection with given array/collection.
+     *
+     * @param Collection|array $items
+     * @return Collection
+     */
+    public function merge($items)
+    {
+        if ($items instanceof static)
+        {
+            $items = $items->all();
+        }
+
+        return new static(array_merge($this->items, $items));
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer

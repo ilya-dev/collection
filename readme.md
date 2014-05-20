@@ -35,7 +35,7 @@ Various development-related notes that I write for my own.
 + `isEmpty` [done]
 + `pluck` [done]
 + `map` [done]
-+ `merge`
++ `merge` [done]
 + `pop` [done]
 + `push` [done]
 + `prepend`

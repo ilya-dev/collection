@@ -156,6 +156,19 @@ class CollectionSpec extends ObjectBehavior {
         $this->pluck('name')->shouldReturn(['Jack', 'John']);
     }
 
+    function it_merges_the_collection_with_given_items()
+    {
+        $collection = $this->merge([6, 7, 8]);
+
+        $collection->shouldBeCollection();
+        $collection->all()->shouldReturn([1, 2, 3, 4, 5, 6, 7, 8]);
+
+        $collection = $this->merge(new Collection([6, 7, 8]));
+
+        $collection->shouldBeCollection();
+        $collection->all()->shouldReturn([1, 2, 3, 4, 5, 6, 7, 8]);
+    }
+
     function it_is_json_serializable()
     {
         $this->shouldImplement('Collection\Contracts\JsonableContract');
