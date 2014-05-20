@@ -52,6 +52,6 @@ Various development-related notes that I write for my own.
 + `sortByDesc`
 + `sum`
 + `take`
-+ `transform`
++ `transform` [done]
 + `unique`
 + `values`

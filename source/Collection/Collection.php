@@ -128,6 +128,17 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Transform the items using iterator.
+     *
+     * @param Closure $iterator
+     * @return void
+     */
+    public function transform(Closure $iterator)
+    {
+        $this->items = array_map($iterator, $this->items);
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer
