@@ -51,5 +51,9 @@ class CollectionSpec extends ObjectBehavior {
         $iterator->getArrayCopy()->shouldReturn([1, 2, 3, 4, 5]);
     }
 
-}
+    function it_supports_array_access()
+    {
+        $this->shouldImplement('ArrayAccess');
+    }
 
+}

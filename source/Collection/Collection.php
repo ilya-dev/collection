@@ -3,8 +3,9 @@
 use Collection\Contracts\JsonableContract;
 use Countable;
 use IteratorAggregate, ArrayIterator;
+use ArrayAccess;
 
-class Collection implements JsonableContract, Countable, IteratorAggregate {
+class Collection implements JsonableContract, Countable, IteratorAggregate, ArrayAccess {
 
     /**
      * The items stored.
