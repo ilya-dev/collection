@@ -1,5 +1,6 @@
 <?php namespace Spec\Collection;
 
+use Collection\Collection;
 use PhpSpec\ObjectBehavior;
 
 class CollectionSpec extends ObjectBehavior {
@@ -55,7 +56,7 @@ class CollectionSpec extends ObjectBehavior {
 
         $collection = $this->flatten();
 
-        $collection->shouldHaveType('Collection\Collection');
+        $collection->shouldBeCollection();
         $collection->all()->shouldReturn([1, 2, 3, 4, 5, 6, 7, 8, 9]);
     }
 
@@ -63,7 +64,7 @@ class CollectionSpec extends ObjectBehavior {
     {
         $collection = $this->reverse();
 
-        $collection->shouldHaveType('Collection\Collection');
+        $collection->shouldBeCollection();
         $collection->all()->shouldReturn([5, 4, 3, 2, 1]);
     }
 
@@ -118,6 +119,21 @@ class CollectionSpec extends ObjectBehavior {
 
         unset ($collection[5]);
         $this->all()->shouldReturn([1, 2, 3, 4, 5]);
+    }
+
+    /**
+     * Get inline matchers.
+     *
+     * @return array
+     */
+    public function getMatchers()
+    {
+        return [
+            'beCollection' => function($subject)
+            {
+                return ($subject instanceof Collection);
+            }
+        ];
     }
 
 }
