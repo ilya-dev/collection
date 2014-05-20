@@ -36,7 +36,7 @@ Various development-related notes that I write for my own.
 + `pluck`
 + `map` [done]
 + `merge`
-+ `pop`
++ `pop` [done]
 + `push` [done]
 + `prepend`
 + `put` [done]

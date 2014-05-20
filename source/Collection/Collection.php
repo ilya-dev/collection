@@ -170,6 +170,16 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Get and remove the last item.
+     *
+     * @return mixed|null
+     */
+    public function pop()
+    {
+        return array_pop($this->items);
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer
