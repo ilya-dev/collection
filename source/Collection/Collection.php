@@ -139,6 +139,16 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Get only unique items.
+     *
+     * @return Collection
+     */
+    public function unique()
+    {
+        return new static(array_unique($this->items));
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer

@@ -53,5 +53,6 @@ Various development-related notes that I write for my own.
 + `sum`
 + `take`
 + `transform` [done]
-+ `unique`
++ `unique` [done]
 + `values`
+

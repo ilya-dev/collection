@@ -92,6 +92,15 @@ class CollectionSpec extends ObjectBehavior {
         $this->all()->shouldReturn([2, 4, 6, 8, 10]);
     }
 
+    function it_returns_only_unique_items()
+    {
+        $this->push(5);
+
+        $collection = $this->unique();
+        $collection->shouldBeCollection();
+        $collection->all()->shouldReturn([1, 2, 3, 4, 5]);
+    }
+
     function it_is_json_serializable()
     {
         $this->shouldImplement('Collection\Contracts\JsonableContract');
