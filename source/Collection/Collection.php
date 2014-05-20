@@ -223,6 +223,17 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Push an item onto the beginning.
+     *
+     * @param mixed $value
+     * @return void
+     */
+    public function prepend($value)
+    {
+        array_unshift($this->items, $value);
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer
