@@ -42,7 +42,7 @@ Various development-related notes that I write for my own.
 + `put` [done]
 + `reduce`
 + `random`
-+ `reverse`
++ `reverse` [done]
 + `shift`
 + `slice`
 + `chunk`

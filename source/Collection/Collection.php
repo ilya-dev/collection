@@ -106,6 +106,16 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Reverse all items and wrap them into a Collection instance.
+     *
+     * @return Collection
+     */
+    public function reverse()
+    {
+        return new Collection(array_reverse($this->items));
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer

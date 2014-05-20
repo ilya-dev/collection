@@ -59,6 +59,14 @@ class CollectionSpec extends ObjectBehavior {
         $collection->all()->shouldReturn([1, 2, 3, 4, 5, 6, 7, 8, 9]);
     }
 
+    function it_reverses_all_items()
+    {
+        $collection = $this->reverse();
+
+        $collection->shouldHaveType('Collection\Collection');
+        $collection->all()->shouldReturn([5, 4, 3, 2, 1]);
+    }
+
     function it_is_json_serializable()
     {
         $this->shouldImplement('Collection\Contracts\JsonableContract');
