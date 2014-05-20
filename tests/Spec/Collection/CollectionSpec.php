@@ -28,6 +28,20 @@ class CollectionSpec extends ObjectBehavior {
         $this->get(10, false)->shouldReturn(false);
     }
 
+    function it_pushes_a_value()
+    {
+        $this->push(6);
+
+        $this->all()->shouldReturn([1, 2, 3, 4, 5, 6]);
+    }
+
+    function it_puts_a_value_by_key()
+    {
+        $this->put(5, 6);
+
+        $this->all()->shouldReturn([1, 2, 3, 4, 5, 6]);
+    }
+
     function it_is_json_serializable()
     {
         $this->shouldImplement('Collection\Contracts\JsonableContract');

@@ -37,9 +37,9 @@ Various development-related notes that I write for my own.
 + `map`
 + `merge`
 + `pop`
-+ `push`
++ `push` [done]
 + `prepend`
-+ `put`
++ `put` [done]
 + `reduce`
 + `random`
 + `reverse`

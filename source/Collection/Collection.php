@@ -48,6 +48,29 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Push a value onto the end.
+     *
+     * @param mixed $value
+     * @return void
+     */
+    public function push($value)
+    {
+        $this->items[] = $value;
+    }
+
+    /**
+     * Put a value by key.
+     *
+     * @param mixed $key
+     * @param mixed $value
+     * @return void
+     */
+    public function put($key, $value)
+    {
+        $this->items[$key] = $value;
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer
