@@ -25,7 +25,7 @@ Various development-related notes that I write for my own.
 + `filter`
 + `first`
 + `last`
-+ `flatten`
++ `flatten` [done]
 + `remove`
 + `get` [done]
 + `groupBy`

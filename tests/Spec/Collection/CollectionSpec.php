@@ -49,6 +49,16 @@ class CollectionSpec extends ObjectBehavior {
         $this->has(5)->shouldReturn(false);
     }
 
+    function it_flattens_all_items()
+    {
+        $this->push([6, 7, [8, 9]]);
+
+        $collection = $this->flatten();
+
+        $collection->shouldHaveType('Collection\Collection');
+        $collection->all()->shouldReturn([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    }
+
     function it_is_json_serializable()
     {
         $this->shouldImplement('Collection\Contracts\JsonableContract');

@@ -82,6 +82,30 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Flatten all items in the collection and return a new one.
+     *
+     * @return Collection
+     */
+    public function flatten()
+    {
+        $items = [];
+
+        foreach ($this->items as $item)
+        {
+            if (is_array($item))
+            {
+                $items = array_merge($items, (new Collection($item))->flatten()->all());
+
+                continue;
+            }
+
+            $items[] = $item;
+        }
+
+        return new Collection($items);
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer
