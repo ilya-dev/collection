@@ -56,6 +56,51 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Unset the item at a given offset.
+     *
+     * @param mixed $offset
+     * @return void
+     */
+    public function offsetUnset($offset)
+    {
+
+    }
+
+    /**
+     * Determine whether an item exists at a given offset.
+     *
+     * @param mixed $offset
+     * @return bool
+     */
+    public function offsetExists($offset)
+    {
+
+    }
+
+    /**
+     * Set the item at a given offset.
+     *
+     * @param mixed $offset
+     * @param mixed $value
+     * @return void
+     */
+    public function offsetSet($offset, $value)
+    {
+
+    }
+
+    /**
+     * Get an item at a given offset.
+     *
+     * @param mixed $offset
+     * @return mixed
+     */
+    public function offsetGet($offset)
+    {
+
+    }
+
+    /**
      * Convert the object into a serializable structure.
      *
      * @return array

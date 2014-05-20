@@ -54,6 +54,8 @@ class CollectionSpec extends ObjectBehavior {
     function it_supports_array_access()
     {
         $this->shouldImplement('ArrayAccess');
+
+        // TODO: write more tests
     }
 
 }
