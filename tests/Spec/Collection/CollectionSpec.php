@@ -64,6 +64,10 @@ class CollectionSpec extends ObjectBehavior {
     {
         $this->shouldImplement('ArrayAccess');
 
+        $collection = $this->getWrappedObject();
+
+        $this->get(3)->shouldReturn($collection[3]);
+
         // TODO: write more tests
     }
 
