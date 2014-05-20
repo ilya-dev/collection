@@ -101,6 +101,13 @@ class CollectionSpec extends ObjectBehavior {
         $collection->all()->shouldReturn([1, 2, 3, 4, 5]);
     }
 
+    function it_removes_an_item_by_key()
+    {
+        $this->remove(4);
+
+        $this->all()->shouldReturn([1, 2, 3, 4]);
+    }
+
     function it_is_json_serializable()
     {
         $this->shouldImplement('Collection\Contracts\JsonableContract');

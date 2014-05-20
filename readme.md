@@ -26,7 +26,7 @@ Various development-related notes that I write for my own.
 + `first`
 + `last`
 + `flatten` [done]
-+ `remove`
++ `remove` [done]
 + `get` [done]
 + `groupBy`
 + `has` [done]

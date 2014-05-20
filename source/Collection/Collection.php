@@ -149,6 +149,17 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Remove an item by key.
+     *
+     * @param mixed $key
+     * @return void
+     */
+    public function remove($key)
+    {
+        unset ($this->items[$key]);
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer
