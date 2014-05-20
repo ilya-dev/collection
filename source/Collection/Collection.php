@@ -36,6 +36,18 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Get an item by key.
+     *
+     * @param mixed $key
+     * @param mixed $default
+     * @return mixed
+     */
+    public function get($key, $default = null)
+    {
+        return array_key_exists($key, $this->items) ? $this->items[$key] : $default;
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer

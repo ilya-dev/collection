@@ -19,6 +19,15 @@ class CollectionSpec extends ObjectBehavior {
         $this->all()->shouldReturn([1, 2, 3, 4, 5]);
     }
 
+    function it_retrieves_a_value()
+    {
+        $this->get(4)->shouldReturn(5);
+
+        $this->get(10)->shouldReturn(null);
+
+        $this->get(10, false)->shouldReturn(false);
+    }
+
     function it_is_json_serializable()
     {
         $this->shouldImplement('Collection\Contracts\JsonableContract');

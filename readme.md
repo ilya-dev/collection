@@ -27,7 +27,7 @@ Various development-related notes that I write for my own.
 + `last`
 + `flatten`
 + `remove`
-+ `get`
++ `get` [done]
 + `groupBy`
 + `has`
 + `implode`
