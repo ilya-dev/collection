@@ -94,7 +94,7 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
         {
             if (is_array($item))
             {
-                $items = array_merge($items, (new Collection($item))->flatten()->all());
+                $items = array_merge($items, (new static($item))->flatten()->all());
 
                 continue;
             }
@@ -102,7 +102,7 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
             $items[] = $item;
         }
 
-        return new Collection($items);
+        return new static($items);
     }
 
     /**
@@ -112,7 +112,7 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
      */
     public function reverse()
     {
-        return new Collection(array_reverse($this->items));
+        return new static(array_reverse($this->items));
     }
 
     /**
