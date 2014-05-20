@@ -176,6 +176,20 @@ class CollectionSpec extends ObjectBehavior {
         $this->all()->shouldReturn([0, 1, 2, 3, 4, 5]);
     }
 
+    function it_returns_and_removes_the_first_item()
+    {
+        $this->shift()->shouldReturn(1);
+        $this->shift()->shouldReturn(2);
+        $this->shift()->shouldReturn(3);
+
+        $this->all()->shouldReturn([4, 5]);
+
+        $this->shift();
+        $this->shift();
+
+        $this->shift()->shouldReturn(null);
+    }
+
     function it_is_json_serializable()
     {
         $this->shouldImplement('Collection\Contracts\JsonableContract');

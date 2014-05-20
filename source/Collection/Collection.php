@@ -234,6 +234,16 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Get and remove the first item.
+     *
+     * @return mixed|null
+     */
+    public function shift()
+    {
+        return array_shift($this->items);
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer
