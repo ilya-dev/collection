@@ -121,7 +121,14 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
      */
     public function offsetSet($offset, $value)
     {
+        if (is_null($offset))
+        {
+            $this->items[] = $value;
 
+            return null;
+        }
+
+        $this->items[$offset] = $value;
     }
 
     /**

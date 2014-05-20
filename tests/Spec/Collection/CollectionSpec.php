@@ -82,6 +82,12 @@ class CollectionSpec extends ObjectBehavior {
 
         $this->get(3)->shouldReturn($collection[3]);
 
+        $collection[] = 6;
+        $this->all()->shouldReturn([1, 2, 3, 4, 5, 6]);
+
+        $collection[5] = 10;
+        $this->all()->shouldReturn([1, 2, 3, 4, 5, 10]);
+
         // TODO: write more tests
     }
 
