@@ -4,6 +4,7 @@ use Collection\Contracts\JsonableContract;
 use Countable;
 use IteratorAggregate, ArrayIterator;
 use ArrayAccess;
+use Closure;
 
 class Collection implements JsonableContract, Countable, IteratorAggregate, ArrayAccess {
 
@@ -113,6 +114,17 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     public function reverse()
     {
         return new static(array_reverse($this->items));
+    }
+
+    /**
+     * Run iterator over each of the items.
+     *
+     * @param Closure $iterator
+     * @return Collection
+     */
+    public function map(Closure $iterator)
+    {
+        return new static(array_map($iterator, $this->items));
     }
 
     /**

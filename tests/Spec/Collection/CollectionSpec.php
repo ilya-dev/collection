@@ -68,6 +68,19 @@ class CollectionSpec extends ObjectBehavior {
         $collection->all()->shouldReturn([5, 4, 3, 2, 1]);
     }
 
+    function it_runs_iterator_over_each_of_the_items()
+    {
+        $iterator = function($item)
+        {
+            return 2 * $item;
+        };
+
+        $collection = $this->map($iterator);
+
+        $collection->shouldBeCollection();
+        $collection->all()->shouldReturn([2, 4, 6, 8, 10]);
+    }
+
     function it_is_json_serializable()
     {
         $this->shouldImplement('Collection\Contracts\JsonableContract');

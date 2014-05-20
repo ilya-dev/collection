@@ -34,7 +34,7 @@ Various development-related notes that I write for my own.
 + `intersection`
 + `isEmpty`
 + `pluck`
-+ `map`
++ `map` [done]
 + `merge`
 + `pop`
 + `push` [done]
