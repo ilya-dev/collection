@@ -109,7 +109,7 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
      */
     public function offsetUnset($offset)
     {
-
+        unset ($this->items[$offset]);
     }
 
     /**
