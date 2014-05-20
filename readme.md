@@ -54,5 +54,5 @@ Various development-related notes that I write for my own.
 + `take`
 + `transform` [done]
 + `unique` [done]
-+ `values`
++ `values` [done]
 

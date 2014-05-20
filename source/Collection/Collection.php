@@ -160,6 +160,16 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Reset the keys.
+     *
+     * @return void
+     */
+    public function values()
+    {
+        $this->items = array_values($this->items);
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer
