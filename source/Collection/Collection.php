@@ -71,6 +71,17 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Determine whether an item exists by key.
+     *
+     * @param mixed $key
+     * @return boolean
+     */
+    public function has($key)
+    {
+        return array_key_exists($key, $this->items);
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer

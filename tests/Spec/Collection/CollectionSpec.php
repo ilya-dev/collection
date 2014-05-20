@@ -42,6 +42,13 @@ class CollectionSpec extends ObjectBehavior {
         $this->all()->shouldReturn([1, 2, 3, 4, 5, 6]);
     }
 
+    function it_checks_if_an_item_exists_by_key()
+    {
+        $this->has(4)->shouldReturn(true);
+
+        $this->has(5)->shouldReturn(false);
+    }
+
     function it_is_json_serializable()
     {
         $this->shouldImplement('Collection\Contracts\JsonableContract');

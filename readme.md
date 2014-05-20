@@ -29,7 +29,7 @@ Various development-related notes that I write for my own.
 + `remove`
 + `get` [done]
 + `groupBy`
-+ `has`
++ `has` [done]
 + `implode`
 + `intersection`
 + `isEmpty`
