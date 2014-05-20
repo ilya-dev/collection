@@ -95,6 +95,9 @@ class CollectionSpec extends ObjectBehavior {
         $collection[5] = 10;
         $this->all()->shouldReturn([1, 2, 3, 4, 5, 10]);
 
+        $this->has(5)->shouldBeEqualTo(isset ($collection[5]));
+        $this->has(6)->shouldBeEqualTo(isset ($collection[6]));
+
         // TODO: write more tests
     }
 

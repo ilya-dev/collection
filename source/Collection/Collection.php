@@ -120,7 +120,7 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
      */
     public function offsetExists($offset)
     {
-
+        return array_key_exists($offset, $this->items);
     }
 
     /**
