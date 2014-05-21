@@ -273,6 +273,17 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Compute intersection of two sets of items.
+     *
+     * @param Collection|array $items
+     * @return Collection
+     */
+    public function intersection($items)
+    {
+        return new static(array_intersect($this->items, $this->toArray($items)));
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer

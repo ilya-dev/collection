@@ -31,7 +31,7 @@ Various development-related notes that I write for my own.
 + `groupBy`
 + `has` [done]
 + `implode`
-+ `intersection`
++ `intersection` [done]
 + `isEmpty` [done]
 + `pluck` [done]
 + `map` [done]
