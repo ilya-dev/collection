@@ -212,6 +212,15 @@ class CollectionSpec extends ObjectBehavior {
         $this->each($iterator);
     }
 
+    function it_computes_the_difference_between_two_sets_of_items()
+    {
+        $collection = $this->difference([1, 2, 3]);
+        $collection->shouldBeCollection();
+        $collection->all()->shouldReturn([3 => 4, 4 => 5]);
+
+        $this->difference(new Collection([1, 2, 3]))->shouldBeLike($collection);
+    }
+
     function it_is_json_serializable()
     {
         $this->shouldImplement('Collection\Contracts\JsonableContract');

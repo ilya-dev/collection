@@ -267,6 +267,22 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Find the difference between two sets of items.
+     *
+     * @param Collection|array $items
+     * @return Collection
+     */
+    public function difference($items)
+    {
+        if ($items instanceof static)
+        {
+            $items = $items->all();
+        }
+
+        return new static(array_diff($this->items, $items));
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer

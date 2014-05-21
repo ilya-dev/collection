@@ -19,7 +19,7 @@ Various development-related notes that I write for my own.
 
 + `all` [done]
 + `collapse`
-+ `difference`
++ `difference` [done]
 + `each` [done]
 + `fetch`
 + `filter` [done]
