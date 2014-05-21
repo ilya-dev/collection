@@ -492,6 +492,40 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Sort the items using a Closure.
+     *
+     * @param Closure $callback
+     * @param integer $options
+     * @param boolean $descening
+     * @return void
+     */
+    public function sortBy(Closure $callback, $options = SORT_REGULAR, $descending = false)
+    {
+        $items = [];
+
+        foreach ($this->items as $key => $value)
+        {
+            $items[$key] = $callback($value);
+        }
+
+        if ($descending)
+        {
+            arsort($items, $options);
+        }
+        else
+        {
+            asort($items, $options);
+        }
+
+        foreach (array_keys($items) as $key)
+        {
+            $items[$key] = $this->items[$key];
+        }
+
+        $this->items = $items;
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer
