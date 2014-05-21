@@ -526,6 +526,18 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Sort the items in descending order using a Closure.
+     *
+     * @param Closure $callback
+     * @param integer $options
+     * @return void
+     */
+    public function sortByDesc(Closure $callback, $options = SORT_REGULAR)
+    {
+        $this->sortBy($callback, $options, true);
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer

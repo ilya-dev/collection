@@ -49,7 +49,7 @@ Various development-related notes that I write for my own.
 + `sort` [done]
 + `sortBy` [done]
 + `splice` [done]
-+ `sortByDesc`
++ `sortByDesc` [done]
 + `sum` [done]
 + `take` [done]
 + `transform` [done]

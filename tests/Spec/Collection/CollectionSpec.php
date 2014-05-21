@@ -392,6 +392,18 @@ class CollectionSpec extends ObjectBehavior {
         $this->all()->shouldReturn([5, 4, 3, 2, 1]);
     }
 
+    function it_sorts_the_items_in_descending_order_using_a_Closure()
+    {
+        $callback = function($item)
+        {
+            return $item * -1;
+        };
+
+        $this->sortByDesc($callback);
+
+        $this->all()->shouldReturn([1, 2, 3, 4, 5]);
+    }
+
     function it_is_json_serializable()
     {
         $this->shouldImplement('Collection\Contracts\JsonableContract');
