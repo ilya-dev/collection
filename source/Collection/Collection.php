@@ -256,6 +256,17 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Run an iterator over each of the items.
+     *
+     * @param Closure $iterator
+     * @return void
+     */
+    public function each(Closure $iterator)
+    {
+        array_map($iterator, $this->items);
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer

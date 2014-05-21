@@ -202,6 +202,16 @@ class CollectionSpec extends ObjectBehavior {
         $collection->all()->shouldReturn([1 => 2, 3 => 4]);
     }
 
+    function it_runs_an_iterator_over_each_of_the_items()
+    {
+        $iterator = function($item)
+        {
+            // do something with the item...
+        };
+
+        $this->each($iterator);
+    }
+
     function it_is_json_serializable()
     {
         $this->shouldImplement('Collection\Contracts\JsonableContract');
