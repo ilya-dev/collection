@@ -388,6 +388,16 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Get the last item.
+     *
+     * @return mixed|null
+     */
+    public function last()
+    {
+        return count($this->items) ? end($this->items) : null;
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer

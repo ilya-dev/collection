@@ -24,7 +24,7 @@ Various development-related notes that I write for my own.
 + `fetch`
 + `filter` [done]
 + `first` [done]
-+ `last`
++ `last` [done]
 + `flatten` [done]
 + `remove` [done]
 + `get` [done]

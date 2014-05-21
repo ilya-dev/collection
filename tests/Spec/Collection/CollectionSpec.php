@@ -321,6 +321,16 @@ class CollectionSpec extends ObjectBehavior {
         $this->first()->shouldReturn(null);
     }
 
+    function it_returns_the_last_item()
+    {
+        $this->last()->shouldReturn(5);
+
+        // clean the collection
+        array_map([$this, 'pop'], range(1, 5));
+
+        $this->last()->shouldReturn(null);
+    }
+
     function it_is_json_serializable()
     {
         $this->shouldImplement('Collection\Contracts\JsonableContract');
