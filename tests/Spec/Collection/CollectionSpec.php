@@ -298,6 +298,19 @@ class CollectionSpec extends ObjectBehavior {
         ]);
     }
 
+    function it_collapses_the_items_into_a_single_array()
+    {
+        // clean the collection
+        array_map([$this, 'pop'], range(1, 5));
+
+        $this->push([1, 2]);
+        $this->push([3, 4]);
+
+        $collection = $this->collapse();
+        $collection->shouldBeCollection();
+        $collection->all()->shouldReturn([1, 2, 3, 4]);
+    }
+
     function it_is_json_serializable()
     {
         $this->shouldImplement('Collection\Contracts\JsonableContract');

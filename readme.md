@@ -18,7 +18,7 @@ Various development-related notes that I write for my own.
 #### Methods
 
 + `all` [done]
-+ `collapse`
++ `collapse` [done]
 + `difference` [done]
 + `each` [done]
 + `fetch`

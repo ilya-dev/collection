@@ -361,6 +361,23 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Collapse the items into a single array.
+     *
+     * @return Collection
+     */
+    public function collapse()
+    {
+        $items = [];
+
+        foreach ($this->items as $item)
+        {
+            $items = array_merge($items, $item);
+        }
+
+        return new static($items);
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer
