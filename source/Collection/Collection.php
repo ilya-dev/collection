@@ -215,12 +215,7 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
      */
     public function merge($items)
     {
-        if ($items instanceof static)
-        {
-            $items = $items->all();
-        }
-
-        return new static(array_merge($this->items, $items));
+        return new static(array_merge($this->items, $this->toArray($items)));
     }
 
     /**
@@ -274,12 +269,7 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
      */
     public function difference($items)
     {
-        if ($items instanceof static)
-        {
-            $items = $items->all();
-        }
-
-        return new static(array_diff($this->items, $items));
+        return new static(array_diff($this->items, $this->toArray($items)));
     }
 
     /**
@@ -383,6 +373,22 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     public function __toString()
     {
         return $this->toJson();
+    }
+
+    /**
+     * Get array of items.
+     *
+     * @param Collection|array $items
+     * @return array
+     */
+    protected function toArray($items)
+    {
+        if ($items instanceof static)
+        {
+            return $items->all();
+        }
+
+        return $items;
     }
 
 }
