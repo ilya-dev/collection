@@ -446,6 +446,22 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Take a number of the items (first or last).
+     *
+     * @param integer $limit
+     * @return Collection
+     */
+    public function take($limit)
+    {
+        if ($limit < 0)
+        {
+            return $this->slice($limit, abs($limit));
+        }
+
+        return $this->slice(0, $limit);
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer

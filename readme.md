@@ -51,7 +51,7 @@ Various development-related notes that I write for my own.
 + `splice` [done]
 + `sortByDesc`
 + `sum` [done]
-+ `take`
++ `take` [done]
 + `transform` [done]
 + `unique` [done]
 + `values` [done]

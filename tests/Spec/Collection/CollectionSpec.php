@@ -352,6 +352,13 @@ class CollectionSpec extends ObjectBehavior {
         $this->fetch('foo.bar')->all()->shouldReturn(['baz' => 42]);
     }
 
+    function it_returns_a_number_of_the_items()
+    {
+        $this->take(3)->all()->shouldReturn([1, 2, 3]);
+
+        $this->take(-3)->all()->shouldReturn([3, 4, 5]);
+    }
+
     function it_is_json_serializable()
     {
         $this->shouldImplement('Collection\Contracts\JsonableContract');
