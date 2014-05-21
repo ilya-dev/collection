@@ -22,7 +22,7 @@ Various development-related notes that I write for my own.
 + `difference`
 + `each`
 + `fetch`
-+ `filter`
++ `filter` [done]
 + `first`
 + `last`
 + `flatten` [done]

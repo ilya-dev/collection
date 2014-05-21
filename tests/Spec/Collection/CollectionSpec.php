@@ -190,6 +190,18 @@ class CollectionSpec extends ObjectBehavior {
         $this->shift()->shouldReturn(null);
     }
 
+    function it_runs_a_filter_over_each_of_the_items()
+    {
+        $filter = function($item)
+        {
+            return ($item % 2) == 0;
+        };
+
+        $collection = $this->filter($filter);
+        $collection->shouldBeCollection();
+        $collection->all()->shouldReturn([1 => 2, 3 => 4]);
+    }
+
     function it_is_json_serializable()
     {
         $this->shouldImplement('Collection\Contracts\JsonableContract');

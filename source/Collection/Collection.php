@@ -245,6 +245,17 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Run a filter over each of the items.
+     *
+     * @param Closure $filter
+     * @return Collection
+     */
+    public function filter(Closure $filter)
+    {
+        return new static(array_filter($this->items, $filter));
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer
