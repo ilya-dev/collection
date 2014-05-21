@@ -41,7 +41,7 @@ Various development-related notes that I write for my own.
 + `prepend` [done]
 + `put` [done]
 + `reduce` [done]
-+ `random`
++ `random` [done]
 + `reverse` [done]
 + `shift` [done]
 + `slice`

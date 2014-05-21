@@ -318,6 +318,19 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Randomly pick one or more items.
+     *
+     * @param integer $amount
+     * @return mixed
+     */
+    public function random($amount = 1)
+    {
+        $keys = array_rand($this->items, $amount);
+
+        return is_array($keys) ? array_intersect_key($this->items, array_flip($keys)) : $this->items[$keys];
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer

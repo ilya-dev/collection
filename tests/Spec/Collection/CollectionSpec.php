@@ -252,6 +252,15 @@ class CollectionSpec extends ObjectBehavior {
         $this->sum($callback)->shouldReturn(30);
     }
 
+    function it_randomly_picks_items_from_the_collection()
+    {
+        $this->random()->shouldBeInteger();
+
+        $items = $this->random(2);
+        $items->shouldBeArray();
+        $items->shouldHaveCount(2);
+    }
+
     function it_is_json_serializable()
     {
         $this->shouldImplement('Collection\Contracts\JsonableContract');
