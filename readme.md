@@ -28,7 +28,7 @@ Various development-related notes that I write for my own.
 + `flatten` [done]
 + `remove` [done]
 + `get` [done]
-+ `groupBy`
++ `groupBy` [done]
 + `has` [done]
 + `implode` [done]
 + `intersection` [done]

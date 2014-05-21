@@ -273,6 +273,31 @@ class CollectionSpec extends ObjectBehavior {
         $this->implode('message', ', ')->shouldReturn('Hello, world');
     }
 
+    function it_groups_an_array_by_a_field_value()
+    {
+        // clean the collection
+        array_map([$this, 'pop'], range(1, 5));
+
+        $this->push(['value' => 'foo']);
+        $this->push(['value' => 'bar']);
+
+        $collection = $this->groupBy('value');
+
+        $collection->shouldBeCollection();
+        $collection->all()->shouldReturn([
+            'foo' => [
+                [
+                    'value' => 'foo'
+                ]
+            ],
+            'bar' => [
+                [
+                    'value' => 'bar'
+                ]
+            ]
+        ]);
+    }
+
     function it_is_json_serializable()
     {
         $this->shouldImplement('Collection\Contracts\JsonableContract');

@@ -343,6 +343,24 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Group an array by a field value.
+     *
+     * @param string $key
+     * @return Collection
+     */
+    public function groupBy($key)
+    {
+        $groups = [];
+
+        foreach ($this->items as $itemKey => $value)
+        {
+            $groups[$value[$key]][] = $value;
+        }
+
+        return new static($groups);
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer
