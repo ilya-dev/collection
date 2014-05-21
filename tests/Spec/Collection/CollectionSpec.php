@@ -230,6 +230,16 @@ class CollectionSpec extends ObjectBehavior {
         $this->intersection(new Collection([1, 2, 10]))->shouldBeLike($collection);
     }
 
+    function it_reduces_the_collection_to_a_single_value()
+    {
+        $callback = function($previous, $current)
+        {
+            return $previous + $current;
+        };
+
+        $this->reduce($callback)->shouldReturn(15);
+    }
+
     function it_is_json_serializable()
     {
         $this->shouldImplement('Collection\Contracts\JsonableContract');

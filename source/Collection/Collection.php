@@ -284,6 +284,18 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Reduce the collection to a single value.
+     *
+     * @param Closure $callback
+     * @param mixed $initial
+     * @return mixed
+     */
+    public function reduce(Closure $callback, $initial = null)
+    {
+        return array_reduce($this->items, $callback, $initial);
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer

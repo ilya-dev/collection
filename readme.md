@@ -40,7 +40,7 @@ Various development-related notes that I write for my own.
 + `push` [done]
 + `prepend` [done]
 + `put` [done]
-+ `reduce`
++ `reduce` [done]
 + `random`
 + `reverse` [done]
 + `shift` [done]
