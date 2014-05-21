@@ -311,6 +311,16 @@ class CollectionSpec extends ObjectBehavior {
         $collection->all()->shouldReturn([1, 2, 3, 4]);
     }
 
+    function it_returns_the_first_item()
+    {
+        $this->first()->shouldReturn(1);
+
+        // clean the collection
+        array_map([$this, 'pop'], range(1, 5));
+
+        $this->first()->shouldReturn(null);
+    }
+
     function it_is_json_serializable()
     {
         $this->shouldImplement('Collection\Contracts\JsonableContract');

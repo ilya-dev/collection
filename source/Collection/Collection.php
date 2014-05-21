@@ -378,6 +378,16 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Get the first item.
+     *
+     * @return mixed|null
+     */
+    public function first()
+    {
+        return count($this->items) ? reset($this->items) : null;
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer
