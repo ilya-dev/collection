@@ -192,6 +192,7 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     /**
      * Get an array with the values of a key.
      *
+     * @param mixed $key
      * @return array
      */
     public function pluck($key)
