@@ -4,6 +4,33 @@
 
 Painless PHP collections.
 
+## Installation
+
+Open up your terminal, `cd` to your project directory and run:
+
+```shell
+composer require "ilya/collection:~1"
+```
+
+## Usage
+
+```php
+$collection = new Collection\Collection([1, 2, 3]);
+
+$collection->all(); // => [1, 2, 3]
+$collection->sum(); // => 6
+$collection->toJson(); // => "[1,2,3]"
+```
+
+## Documentation
+
+The source code is fully documented, so you can use something like `ApiGen`
+to build pretty HTML documentation.
+
+## Additional information
+
+Collection is licensed under the MIT license.
+
 ## Development
 
 Various development-related notes that I write for my own.
