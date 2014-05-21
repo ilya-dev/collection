@@ -30,7 +30,7 @@ Various development-related notes that I write for my own.
 + `get` [done]
 + `groupBy`
 + `has` [done]
-+ `implode`
++ `implode` [done]
 + `intersection` [done]
 + `isEmpty` [done]
 + `pluck` [done]

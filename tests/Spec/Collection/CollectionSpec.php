@@ -261,6 +261,18 @@ class CollectionSpec extends ObjectBehavior {
         $items->shouldHaveCount(2);
     }
 
+    function it_concatenates_items()
+    {
+        // clean the collection
+        array_map([$this, 'pop'], range(1, 5));
+
+        $this->push(['message' => 'Hello']);
+        $this->push(['message' => 'world']);
+
+        $this->implode('message')->shouldReturn('Helloworld');
+        $this->implode('message', ', ')->shouldReturn('Hello, world');
+    }
+
     function it_is_json_serializable()
     {
         $this->shouldImplement('Collection\Contracts\JsonableContract');

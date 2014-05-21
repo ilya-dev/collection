@@ -331,6 +331,18 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Concatenate items of a key.
+     *
+     * @param string $key
+     * @param string $glue
+     * @return string
+     */
+    public function implode($key, $glue = '')
+    {
+        return implode($glue, $this->pluck($key));
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer
