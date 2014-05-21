@@ -413,6 +413,21 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Splice portion of the underlying array.
+     *
+     * @param integer $offset
+     * @param integer $length
+     * @param mixed $replacement
+     * @return Collection
+     */
+    public function splice($offset, $length = 0, $replacement = [])
+    {
+        return new static(
+            array_splice($this->items, $offset, $length, $replacement)
+        );
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer
