@@ -331,6 +331,15 @@ class CollectionSpec extends ObjectBehavior {
         $this->last()->shouldReturn(null);
     }
 
+    function it_slices_the_underlying_array_of_items()
+    {
+        $this->slice(1)->all()->shouldReturn([2, 3, 4, 5]);
+
+        $this->slice(1, 2)->all()->shouldReturn([2, 3]);
+
+        $this->slice(1, 2, true)->all()->shouldReturn([1 => 2, 2 => 3]);
+    }
+
     function it_is_json_serializable()
     {
         $this->shouldImplement('Collection\Contracts\JsonableContract');

@@ -44,7 +44,7 @@ Various development-related notes that I write for my own.
 + `random` [done]
 + `reverse` [done]
 + `shift` [done]
-+ `slice`
++ `slice` [done]
 + `chunk`
 + `sort`
 + `sortBy`

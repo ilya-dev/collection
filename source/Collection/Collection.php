@@ -398,6 +398,21 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Slice the underlying array.
+     *
+     * @param integer $offset
+     * @param integer $length
+     * @param boolean $preserveKeys
+     * @return Collection
+     */
+    public function slice($offset, $length = null, $preserveKeys = false)
+    {
+        return new static(
+            array_slice($this->items, $offset, $length, $preserveKeys)
+        );
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer
