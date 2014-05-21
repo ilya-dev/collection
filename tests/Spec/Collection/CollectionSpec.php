@@ -359,6 +359,11 @@ class CollectionSpec extends ObjectBehavior {
         $this->take(-3)->all()->shouldReturn([3, 4, 5]);
     }
 
+    function it_splits_the_underlying_array_into_chunks()
+    {
+        $this->chunk(2)->all()->shouldHaveCount(3);
+    }
+
     function it_is_json_serializable()
     {
         $this->shouldImplement('Collection\Contracts\JsonableContract');

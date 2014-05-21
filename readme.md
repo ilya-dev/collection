@@ -45,7 +45,7 @@ Various development-related notes that I write for my own.
 + `reverse` [done]
 + `shift` [done]
 + `slice` [done]
-+ `chunk`
++ `chunk` [done]
 + `sort`
 + `sortBy`
 + `splice` [done]

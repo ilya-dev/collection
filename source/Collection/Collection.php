@@ -462,6 +462,25 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Chunk the underlying array.
+     *
+     * @param integer $size
+     * @param boolean $preserveKeys
+     * @return Collection
+     */
+    public function chunk($size, $preserveKeys = false)
+    {
+        $chunks = new static;
+
+        foreach (array_chunk($this->items, $size, $preserveKeys) as $chunk)
+        {
+            $chunks->push(new static($chunk));
+        }
+
+        return $chunks;
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer
