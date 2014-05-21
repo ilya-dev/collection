@@ -481,6 +481,17 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Sort through each item with a comparator function.
+     *
+     * @param Closure $comparator
+     * @return void
+     */
+    public function sort(Closure $comparator)
+    {
+        uasort($this->items, $comparator);
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer

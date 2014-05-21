@@ -364,6 +364,20 @@ class CollectionSpec extends ObjectBehavior {
         $this->chunk(2)->all()->shouldHaveCount(3);
     }
 
+    function it_sorts_through_each_item()
+    {
+        $comparator = function($left, $right)
+        {
+            return ($right < $left) ? -1 : 1;
+        };
+
+        $this->sort($comparator);
+
+        $this->values();
+
+        $this->all()->shouldReturn([5, 4, 3, 2, 1]);
+    }
+
     function it_is_json_serializable()
     {
         $this->shouldImplement('Collection\Contracts\JsonableContract');

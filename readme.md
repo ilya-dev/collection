@@ -46,7 +46,7 @@ Various development-related notes that I write for my own.
 + `shift` [done]
 + `slice` [done]
 + `chunk` [done]
-+ `sort`
++ `sort` [done]
 + `sortBy`
 + `splice` [done]
 + `sortByDesc`
