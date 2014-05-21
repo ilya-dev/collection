@@ -1,5 +1,7 @@
 # Collection
 
+[![Build Status](https://travis-ci.org/ilya-dev/collection.svg?branch=master)](https://travis-ci.org/ilya-dev/collection)
+
 Painless PHP collections.
 
 ## Development
