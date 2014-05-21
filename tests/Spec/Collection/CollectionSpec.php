@@ -345,6 +345,13 @@ class CollectionSpec extends ObjectBehavior {
         $this->splice(0, 2)->all()->shouldReturn([1, 2]);
     }
 
+    function it_fetches_a_nested_element()
+    {
+        $this->put('foo', ['bar' => ['baz' => 42]]);
+
+        $this->fetch('foo.bar')->all()->shouldReturn(['baz' => 42]);
+    }
+
     function it_is_json_serializable()
     {
         $this->shouldImplement('Collection\Contracts\JsonableContract');

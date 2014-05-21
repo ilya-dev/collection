@@ -428,6 +428,24 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Fetch a nested element using dot notation.
+     *
+     * @param string $key
+     * @return Collection
+     */
+    public function fetch($key)
+    {
+        $element = null;
+
+        foreach (explode('.', $key) as $key)
+        {
+            $element = $element ? $element[$key] : $this->items[$key];
+        }
+
+        return new static($element);
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer

@@ -21,7 +21,7 @@ Various development-related notes that I write for my own.
 + `collapse` [done]
 + `difference` [done]
 + `each` [done]
-+ `fetch`
++ `fetch` [done]
 + `filter` [done]
 + `first` [done]
 + `last` [done]
