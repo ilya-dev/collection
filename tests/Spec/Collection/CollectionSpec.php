@@ -240,6 +240,18 @@ class CollectionSpec extends ObjectBehavior {
         $this->reduce($callback)->shouldReturn(15);
     }
 
+    function it_returns_the_sum_of_the_items()
+    {
+        $this->sum()->shouldReturn(15);
+
+        $callback = function($item)
+        {
+            return $item * 2;
+        };
+
+        $this->sum($callback)->shouldReturn(30);
+    }
+
     function it_is_json_serializable()
     {
         $this->shouldImplement('Collection\Contracts\JsonableContract');

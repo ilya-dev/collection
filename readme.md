@@ -50,7 +50,7 @@ Various development-related notes that I write for my own.
 + `sortBy`
 + `splice`
 + `sortByDesc`
-+ `sum`
++ `sum` [done]
 + `take`
 + `transform` [done]
 + `unique` [done]

@@ -296,6 +296,28 @@ class Collection implements JsonableContract, Countable, IteratorAggregate, Arra
     }
 
     /**
+     * Get the sum of the items.
+     *
+     * @param Closure|null $callback
+     * @return mixed
+     */
+    public function sum(Closure $callback = null)
+    {
+        if (is_null($callback))
+        {
+            $callback = function($item)
+            {
+                return $item;
+            };
+        }
+
+        return $this->reduce(function($previous, $current) use($callback)
+        {
+            return $previous + $callback($current);
+        }, 0);
+    }
+
+    /**
      * Count the number of items.
      *
      * @return integer
