@@ -139,16 +139,14 @@ class CollectionSpec extends ObjectBehavior {
     {
         $this->isEmpty()->shouldReturn(false);
 
-        // invoke "pop" 5 times
-        array_map([$this, 'pop'], range(1, 5));
+        $this->cleanCollection();
 
         $this->isEmpty()->shouldReturn(true);
     }
 
     function it_returns_an_array_with_the_values_of_a_key()
     {
-        // clean the collection
-        array_map([$this, 'remove'], range(0, 4));
+        $this->cleanCollection();
 
         $this->push(['name' => 'Jack']);
         $this->push(['name' => 'John']);
@@ -263,8 +261,7 @@ class CollectionSpec extends ObjectBehavior {
 
     function it_concatenates_items()
     {
-        // clean the collection
-        array_map([$this, 'pop'], range(1, 5));
+        $this->cleanCollection();
 
         $this->push(['message' => 'Hello']);
         $this->push(['message' => 'world']);
@@ -275,8 +272,7 @@ class CollectionSpec extends ObjectBehavior {
 
     function it_groups_an_array_by_a_field_value()
     {
-        // clean the collection
-        array_map([$this, 'pop'], range(1, 5));
+        $this->cleanCollection();
 
         $this->push(['value' => 'foo']);
         $this->push(['value' => 'bar']);
@@ -300,8 +296,7 @@ class CollectionSpec extends ObjectBehavior {
 
     function it_collapses_the_items_into_a_single_array()
     {
-        // clean the collection
-        array_map([$this, 'pop'], range(1, 5));
+        $this->cleanCollection();
 
         $this->push([1, 2]);
         $this->push([3, 4]);
@@ -315,8 +310,7 @@ class CollectionSpec extends ObjectBehavior {
     {
         $this->first()->shouldReturn(1);
 
-        // clean the collection
-        array_map([$this, 'pop'], range(1, 5));
+        $this->cleanCollection();
 
         $this->first()->shouldReturn(null);
     }
@@ -325,8 +319,7 @@ class CollectionSpec extends ObjectBehavior {
     {
         $this->last()->shouldReturn(5);
 
-        // clean the collection
-        array_map([$this, 'pop'], range(1, 5));
+        $this->cleanCollection();
 
         $this->last()->shouldReturn(null);
     }
@@ -470,6 +463,16 @@ class CollectionSpec extends ObjectBehavior {
                 return ($subject instanceof Collection);
             }
         ];
+    }
+
+    /**
+     * Remove all items in the collection.
+     *
+     * @return void
+     */
+    protected function cleanCollection()
+    {
+        array_map([$this, 'pop'], range(1, 5));
     }
 
 }
