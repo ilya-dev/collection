@@ -12,7 +12,7 @@ Open up your terminal, `cd` to your project directory and run:
 composer require "ilya/collection:~1"
 ```
 
-## Usage
+## Example
 
 ```php
 $collection = new Collection\Collection([1, 2, 3]);
@@ -24,27 +24,19 @@ $collection->toJson(); // => "[1,2,3]"
 
 ## Documentation
 
-The source code is fully documented, so you can use something like `ApiGen`
+The source code is fully documented so you can use tools like `ApiGen`
 to build pretty HTML documentation.
 
-## Additional information
+## Features
 
-Collection is licensed under the MIT license.
-
-## Development
-
-Various development-related notes that I write for my own.
-
-### Roadmap
-
-#### Interfaces
+### Interfaces supported
 
 + `JsonSerializable` [done]
 + `Countable` [done]
 + `ArrayAccess` [done]
 + `IteratorAggregate` [done]
 
-#### Methods
+### Methods provided
 
 + `all` [done]
 + `collapse` [done]
@@ -85,3 +77,6 @@ Various development-related notes that I write for my own.
 + `unique` [done]
 + `values` [done]
 
+## License
+
+This project is licensed under the MIT license.

@@ -1,6 +1,6 @@
 {
     "name": "ilya/collection",
-    "description": "Painless PHP collections",
+    "description": "Painless PHP collections.",
     "keywords": ["collection"],
     "license": "MIT",
     "require-dev": {
