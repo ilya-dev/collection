@@ -23,9 +23,7 @@ class CollectionSpec extends ObjectBehavior {
     function it_retrieves_a_value()
     {
         $this->get(4)->shouldReturn(5);
-
         $this->get(10)->shouldReturn(null);
-
         $this->get(10, false)->shouldReturn(false);
     }
 
@@ -46,7 +44,6 @@ class CollectionSpec extends ObjectBehavior {
     function it_checks_if_an_item_exists_by_key()
     {
         $this->has(4)->shouldReturn(true);
-
         $this->has(5)->shouldReturn(false);
     }
 
@@ -70,12 +67,10 @@ class CollectionSpec extends ObjectBehavior {
 
     function it_runs_iterator_over_each_of_the_items()
     {
-        $iterator = function($item)
+        $collection = $this->map(function($item)
         {
-            return 2 * $item;
-        };
-
-        $collection = $this->map($iterator);
+            return $item * 2;
+        });
 
         $collection->shouldBeCollection();
         $collection->all()->shouldReturn([2, 4, 6, 8, 10]);
@@ -83,12 +78,11 @@ class CollectionSpec extends ObjectBehavior {
 
     function it_transforms_all_items()
     {
-        $iterator = function($item)
+        $this->transform(function($item)
         {
-            return 2 * $item;
-        };
+            return $item * 2;
+        });
 
-        $this->transform($iterator);
         $this->all()->shouldReturn([2, 4, 6, 8, 10]);
     }
 
@@ -97,6 +91,7 @@ class CollectionSpec extends ObjectBehavior {
         $this->push(5);
 
         $collection = $this->unique();
+
         $collection->shouldBeCollection();
         $collection->all()->shouldReturn([1, 2, 3, 4, 5]);
     }
@@ -110,9 +105,9 @@ class CollectionSpec extends ObjectBehavior {
 
     function it_resets_the_item_keys()
     {
-        $this->remove(0);
-
         $items = [2, 3, 4, 5];
+
+        $this->remove(0);
 
         $this->all()->shouldNotReturn($items);
 
@@ -125,7 +120,6 @@ class CollectionSpec extends ObjectBehavior {
     {
         $this->pop()->shouldReturn(5);
         $this->pop()->shouldReturn(4);
-
         $this->all()->shouldReturn([1, 2, 3]);
 
         $this->pop();
@@ -179,7 +173,6 @@ class CollectionSpec extends ObjectBehavior {
         $this->shift()->shouldReturn(1);
         $this->shift()->shouldReturn(2);
         $this->shift()->shouldReturn(3);
-
         $this->all()->shouldReturn([4, 5]);
 
         $this->shift();
@@ -190,29 +183,27 @@ class CollectionSpec extends ObjectBehavior {
 
     function it_runs_a_filter_over_each_of_the_items()
     {
-        $filter = function($item)
+        $collection = $this->filter(function($item)
         {
             return ($item % 2) == 0;
-        };
+        });
 
-        $collection = $this->filter($filter);
         $collection->shouldBeCollection();
         $collection->all()->shouldReturn([1 => 2, 3 => 4]);
     }
 
     function it_runs_an_iterator_over_each_of_the_items()
     {
-        $iterator = function($item)
+        $this->each(function($item)
         {
-            // do something with the item...
-        };
-
-        $this->each($iterator);
+            // do something with $item...
+        });
     }
 
     function it_computes_the_difference_between_two_sets_of_items()
     {
         $collection = $this->difference([1, 2, 3]);
+
         $collection->shouldBeCollection();
         $collection->all()->shouldReturn([3 => 4, 4 => 5]);
 
@@ -222,6 +213,7 @@ class CollectionSpec extends ObjectBehavior {
     function it_computes_intersection_of_two_sets_of_items()
     {
         $collection = $this->intersection([1, 2, 10]);
+
         $collection->shouldBeCollection();
         $collection->all()->shouldReturn([1, 2]);
 
@@ -255,6 +247,7 @@ class CollectionSpec extends ObjectBehavior {
         $this->random()->shouldBeInteger();
 
         $items = $this->random(2);
+
         $items->shouldBeArray();
         $items->shouldHaveCount(2);
     }
@@ -280,18 +273,8 @@ class CollectionSpec extends ObjectBehavior {
         $collection = $this->groupBy('value');
 
         $collection->shouldBeCollection();
-        $collection->all()->shouldReturn([
-            'foo' => [
-                [
-                    'value' => 'foo'
-                ]
-            ],
-            'bar' => [
-                [
-                    'value' => 'bar'
-                ]
-            ]
-        ]);
+        $collection->all()
+                   ->shouldReturn(['foo' => [['value' => 'foo']], 'bar' => [['value' => 'bar']]]);
     }
 
     function it_collapses_the_items_into_a_single_array()
@@ -302,6 +285,7 @@ class CollectionSpec extends ObjectBehavior {
         $this->push([3, 4]);
 
         $collection = $this->collapse();
+
         $collection->shouldBeCollection();
         $collection->all()->shouldReturn([1, 2, 3, 4]);
     }
@@ -327,9 +311,7 @@ class CollectionSpec extends ObjectBehavior {
     function it_slices_the_underlying_array_of_items()
     {
         $this->slice(1)->all()->shouldReturn([2, 3, 4, 5]);
-
         $this->slice(1, 2)->all()->shouldReturn([2, 3]);
-
         $this->slice(1, 2, true)->all()->shouldReturn([1 => 2, 2 => 3]);
     }
 
@@ -348,7 +330,6 @@ class CollectionSpec extends ObjectBehavior {
     function it_returns_a_number_of_the_items()
     {
         $this->take(3)->all()->shouldReturn([1, 2, 3]);
-
         $this->take(-3)->all()->shouldReturn([3, 4, 5]);
     }
 
@@ -359,12 +340,10 @@ class CollectionSpec extends ObjectBehavior {
 
     function it_sorts_through_each_item()
     {
-        $comparator = function($left, $right)
+        $this->sort(function($left, $right)
         {
             return ($right < $left) ? -1 : 1;
-        };
-
-        $this->sort($comparator);
+        });
 
         $this->values();
 
@@ -373,12 +352,10 @@ class CollectionSpec extends ObjectBehavior {
 
     function it_sorts_the_items_using_a_Closure()
     {
-        $callback = function($item)
+        $this->sortBy(function($item)
         {
             return $item * -1;
-        };
-
-        $this->sortBy($callback);
+        });
 
         $this->values();
 
@@ -387,12 +364,10 @@ class CollectionSpec extends ObjectBehavior {
 
     function it_sorts_the_items_in_descending_order_using_a_Closure()
     {
-        $callback = function($item)
+        $this->sortByDesc(function($item)
         {
             return $item * -1;
-        };
-
-        $this->sortByDesc($callback);
+        });
 
         $this->all()->shouldReturn([1, 2, 3, 4, 5]);
     }
@@ -400,22 +375,16 @@ class CollectionSpec extends ObjectBehavior {
     function it_is_json_serializable()
     {
         $this->shouldImplement('Collection\Contracts\JsonableContract');
-
         $this->jsonSerialize()->shouldBeEqualTo($this->all());
-
         $this->toJson()->shouldReturn('[1,2,3,4,5]');
-
         $this->toJson(JSON_PRETTY_PRINT)->shouldNotReturn('[1,2,3,4,5]');
-
         $this->toJson()->shouldBeLike($this->getWrappedObject());
     }
 
     function it_is_countable()
     {
         $this->shouldImplement('Countable');
-
         $this->count()->shouldReturn(5);
-
         $this->count()->shouldBeEqualTo(count($this->getWrappedObject()));
     }
 
@@ -431,22 +400,25 @@ class CollectionSpec extends ObjectBehavior {
 
     function it_supports_array_access()
     {
-        $this->shouldImplement('ArrayAccess');
-
         $collection = $this->getWrappedObject();
+
+        $this->shouldImplement('ArrayAccess');
 
         $this->get(3)->shouldReturn($collection[3]);
 
         $collection[] = 6;
+
         $this->all()->shouldReturn([1, 2, 3, 4, 5, 6]);
 
         $collection[5] = 10;
+
         $this->all()->shouldReturn([1, 2, 3, 4, 5, 10]);
 
         $this->has(5)->shouldBeEqualTo(isset ($collection[5]));
         $this->has(6)->shouldBeEqualTo(isset ($collection[6]));
 
         unset ($collection[5]);
+
         $this->all()->shouldReturn([1, 2, 3, 4, 5]);
     }
 
